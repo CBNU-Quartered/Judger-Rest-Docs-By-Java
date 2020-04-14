@@ -1,0 +1,23 @@
+plugins {
+    id "org.asciidoctor.convert" version "1.5.3"
+}
+
+ext {
+    snippetsDir = file('build/generated-snippets')
+}
+
+asciidoctor {
+    inputs.dir snippetsDir
+    dependsOn test
+}
+
+bootJar {
+    dependsOn asciidoctor
+    from ("${asciidoctor.outputDir}/html5") {
+        into 'static/docs'
+    }
+}
+
+dependencies {
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+}
