@@ -1,10 +1,13 @@
 package com.hg.judger.vo;
 
 public class ScoringResult {
-    private final String scoringCode;
+    private String scoringCode;
 
     public ScoringResult(String scoringCode) {
         this.scoringCode = scoringCode;
+    }
+
+    public ScoringResult() {
     }
 
     public String getScoringCode() {

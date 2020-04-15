@@ -27,6 +27,7 @@ public class JudgeController {
 
     @PostMapping
     ResponseEntity<ScoringResult> grade(@RequestBody SubmissionInfo submissionInfo) throws IOException {
+        logger.info("submissionInfo: {}", submissionInfo);
         ScoringResult scoringResult = judgeService.run(submissionInfo);
 
         logger.info("scoringResult: {}", scoringResult);
